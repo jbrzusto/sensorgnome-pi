@@ -8,7 +8,7 @@ Disk image releases and updates are available from
 This repository tracks changes to config and other source files,
 using the 2017-02-24 release as the starting point.
 
-Because git does not preserve file ownership, so you should obtain
+Because git does not preserve file ownership, you should obtain
 these files via the updates or images available above.
 
 **DO NOT** install files directly from this repo unless you know what
