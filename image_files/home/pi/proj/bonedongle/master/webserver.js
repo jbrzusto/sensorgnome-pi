@@ -94,7 +94,7 @@ WebServer.prototype.gotDevStatusForRawAudio = function (dev, reqres) {
     res = reqres.res,
     port = req.query.dev;
 
-    if (! dev.type || (dev.type != "AlsaMinder")) {
+    if (! dev.type || (dev.type != "DevMinder")) {
         res.end("No such audio device: " + port);
         return;
     }
