@@ -305,11 +305,10 @@ ACTION=="add",SUBSYSTEMS=="usb", ATTRS{idVendor}=="1f4d", ATTRS{idProduct}=="d80
 GOTO="done"
 
 LABEL="rtlsdr2"
-ACTION=="add",SUBSYSTEMS=="usb",ATTRS{idVendor}=="04d8",ATTRS{idProduct}=="fb56",ENV{MYDEVNAME}="funcubePro",GOTO="usbaudio"
-ACTION=="add",SUBSYSTEMS=="usb",ATTRS{idVendor}=="04d8",ATTRS{idProduct}=="fb31",ENV{MYDEVNAME}="funcubeProPlus",GOTO="usbaudio"
 MODE:="0666"
 IMPORT{program}="/usr/bin/awk -f /home/bone/proj/bonedongle/scripts/get_usb_device_port_number.awk %p"
-DRIVER=="usb",SYMLINK+="bonedongle/rtlsdr.port=%E{PORT_NUM}.usbPath=%s{busnum}:%s{devnum}"
+ENV{major}="%M"
+ENV{major}=="212",SYMLINK+="bonedongle/rtlsdr.port=%E{PORT_NUM}.usbPath=%s{busnum}:%s{devnum}.vidpid=%s{idVendor}:%s{idProduct}.mfg=%s{manufacturer}.prod=%s{product}"
 GOTO="done"
 
 LABEL="done"
